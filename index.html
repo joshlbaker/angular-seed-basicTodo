@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="starterApp">
+	<head>
+	 <title>My Angular App</title>
+	 <!-- bootstrap css -->
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body ng-controller="MainCtrl">
+		<div class="container">
+			<div ng-controller="TodoCtrl">
+				<input type="text" ng-model="todo.title"/>
+				<button ng-click="addTodo($scope)">Add</button><br>
+				<h4><ng-pluralize count="todos.length"
+											when="{'0': 'no more todos',
+												 		 '1': 'boring',
+												 		 'other': '{} items in your thing' }">
+												</ng-pluralize></h4><br>
+					<li ng-repeat="todo in todos">
+						<p>{{todo.title}} <br>
+						<button ng-click="delete(todo)">Delete</button>
+						</p>
+					</li>
+			</div>
+	</div>
+	
+		<!-- angular js -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- custom js -->
+		<script src="app.js"></script>
+
+	</body>
+</html>
